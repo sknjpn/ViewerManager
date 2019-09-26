@@ -14,7 +14,7 @@ public:
 	void	Update();
 
 	template <typename T, typename... Args>
-	std::shared_ptr<T>	MakeViewer(Args&& ...args) { auto v = dynamic_pointer_cast<T>(m_viewers.emplace_back(make_shared<T>(args...))); v->Init(); return v; }
+	std::shared_ptr<T>	MakeViewer(Args&& ...args) { auto v = dynamic_pointer_cast<T>(m_viewers.emplace_back(MakeShared<T>(args...))); v->Init(); return v; }
 
 	template<typename T>
 	std::shared_ptr<T> GetViewer() const

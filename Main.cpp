@@ -1,21 +1,30 @@
 ﻿#include "ViewerManager.h"
 #include "Viewer.h"
 
-void Main()
+class TitleViewer
+	: public Viewer
 {
-	// 背景を水色にする
-	Scene::SetBackground(ColorF(0.8, 0.9, 1.0));
+	Font font;
+	Vec2 catPos;
+	Texture cat;
 
-	// 大きさ 60 のフォントを用意
-	const Font font(60);
+public:
+	void Init() override
+	{
+		// 背景を水色にする
+		SetBackgroundColor(ColorF(0.8, 0.9, 1.0));
 
-	// 猫のテクスチャを用意
-	const Texture cat(Emoji(U"🐈"));
+		// 大きさ 60 のフォントを用意
+		font = Font(60);
 
-	// 猫の座標
-	Vec2 catPos(640, 450);
+		// 猫のテクスチャを用意
+		cat = Texture(Emoji(U"🐈"));
 
-	while (System::Update())
+		// 猫の座標
+		catPos.set(640, 450);
+	}
+
+	void Update() override
 	{
 		// テキストを画面の中心に描く
 		font(U"Hello, Siv3D!🐣").drawAt(Scene::Center(), Palette::Black);
@@ -39,5 +48,16 @@ void Main()
 			// 猫の座標を画面内のランダムな位置に移動する
 			catPos = RandomVec2(Scene::Rect());
 		}
+	}
+};
+
+void Main()
+{
+	g_viewerManagerPtr = MakeUnique<ViewerManager>();
+	g_viewerManagerPtr->MakeViewer<TitleViewer>();
+
+	while (System::Update())
+	{
+		g_viewerManagerPtr->Update();
 	}
 }
