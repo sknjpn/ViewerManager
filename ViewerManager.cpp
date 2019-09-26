@@ -44,4 +44,9 @@ void ViewerManager::Update()
 
 		RectF((*it)->m_drawRect.size).drawFrame(1.0, 0.0, ColorF(Palette::Red, 0.5));
 	}
+
+	// Viewer追加
+	for (const auto& v : m_new_viewers)
+		m_viewers.emplace_back(v);
+	m_new_viewers.clear();
 }
