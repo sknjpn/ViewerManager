@@ -82,6 +82,9 @@
     <Filter Include="Resource Files\example\svm">
       <UniqueIdentifier>{efc7c679-c387-43b2-93ed-b6e6ccbcd1a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\src">
+      <UniqueIdentifier>{75ac6d6c-4af0-45e5-aa4c-177aa261c5bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -91,7 +94,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ViewerManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
