@@ -3,7 +3,7 @@
 
 std::unique_ptr<ViewerManager>	g_viewerManagerPtr;
 
-void ViewerManager::Update()
+void ViewerManager::update()
 {
 	// nullptr になったViewerのリセット
 	m_viewers.remove(nullptr);
@@ -37,7 +37,7 @@ void ViewerManager::Update()
 
 		RectF((*it)->m_drawRect.size).draw((*it)->m_backgroundColor);
 
-		(*it)->Update();
+		(*it)->update();
 
 		// Viewerが消されてnullptrになっている可能性がある
 		if (*it != nullptr) (*it)->m_transformer.reset();
@@ -46,7 +46,7 @@ void ViewerManager::Update()
 	}
 
 	// Viewer追加
-	for (const auto& v : m_new_viewers)
+	for (const auto& v : m_newViewers)
 		m_viewers.emplace_back(v);
-	m_new_viewers.clear();
+	m_newViewers.clear();
 }

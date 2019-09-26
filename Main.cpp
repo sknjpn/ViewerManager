@@ -28,7 +28,7 @@ public:
 		SetDrawRect(600, 600);
 	}
 
-	void Update() override
+	void update() override
 	{
 		// テキストを画面の中心に描く
 		m_font(U"Hello, Siv3D!🐣").drawAt(Scene::Center(), Palette::Black);
@@ -62,23 +62,23 @@ public:
 		SetBackgroundColor(Palette::Gray);
 	}
 
-	void Update()
+	void update()
 	{
 		if (SimpleGUI::Button(U"White", Vec2(10, 10), 180))
 		{
-			g_viewerManagerPtr->GetViewer<TitleViewer>()->SetColor(Palette::White);
+			g_viewerManagerPtr->getViewer<TitleViewer>()->SetColor(Palette::White);
 		}
 		if (SimpleGUI::Button(U"Red", Vec2(10, 50), 180))
 		{
-			g_viewerManagerPtr->GetViewer<TitleViewer>()->SetColor(Palette::Red);
+			g_viewerManagerPtr->getViewer<TitleViewer>()->SetColor(Palette::Red);
 		}
 		if (SimpleGUI::Button(U"Green", Vec2(10, 90), 180))
 		{
-			g_viewerManagerPtr->GetViewer<TitleViewer>()->SetColor(Palette::Green);
+			g_viewerManagerPtr->getViewer<TitleViewer>()->SetColor(Palette::Green);
 		}
 		if (SimpleGUI::Button(U"Blue", Vec2(10, 130), 180))
 		{
-			g_viewerManagerPtr->GetViewer<TitleViewer>()->SetColor(Palette::Blue);
+			g_viewerManagerPtr->getViewer<TitleViewer>()->SetColor(Palette::Blue);
 		}
 	}
 };
@@ -93,13 +93,13 @@ public:
 		SetBackgroundColor(Palette::Gray);
 	}
 
-	void Update()
+	void update()
 	{
 		// ボタンが押されたら
 		if (SimpleGUI::Button(U"Move the cat", Vec2(10, 10), 180))
 		{
 			// 猫の座標を画面内のランダムな位置に移動する
-			g_viewerManagerPtr->GetViewer<TitleViewer>()->SetCatPos(RandomVec2(Scene::Rect()));
+			g_viewerManagerPtr->getViewer<TitleViewer>()->SetCatPos(RandomVec2(Scene::Rect()));
 		}
 	}
 };
@@ -107,12 +107,12 @@ public:
 void Main()
 {
 	g_viewerManagerPtr = MakeUnique<ViewerManager>();
-	g_viewerManagerPtr->MakeViewer<TitleViewer>();
-	g_viewerManagerPtr->MakeViewer<ButtonViewer>();
-	g_viewerManagerPtr->MakeViewer<TeleportViewer>();
+	g_viewerManagerPtr->makeViewer<TitleViewer>();
+	g_viewerManagerPtr->makeViewer<ButtonViewer>();
+	g_viewerManagerPtr->makeViewer<TeleportViewer>();
 
-	while (System::Update())
+	while (System::update())
 	{
-		g_viewerManagerPtr->Update();
+		g_viewerManagerPtr->update();
 	}
 }
