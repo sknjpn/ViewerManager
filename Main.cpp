@@ -1,4 +1,7 @@
-﻿void Main()
+﻿#include "ViewerManager.h"
+#include "Viewer.h"
+
+void Main()
 {
 	// 背景を水色にする
 	Scene::SetBackground(ColorF(0.8, 0.9, 1.0));
