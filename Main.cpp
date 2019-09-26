@@ -66,19 +66,19 @@ public:
 	{
 		if (SimpleGUI::Button(U"White", Vec2(10, 10), 180))
 		{
-			g_viewerManagerPtr->getViewer<TitleViewer>()->SetColor(Palette::White);
+			ViewerManager::GetViewer<TitleViewer>()->SetColor(Palette::White);
 		}
 		if (SimpleGUI::Button(U"Red", Vec2(10, 50), 180))
 		{
-			g_viewerManagerPtr->getViewer<TitleViewer>()->SetColor(Palette::Red);
+			ViewerManager::GetViewer<TitleViewer>()->SetColor(Palette::Red);
 		}
 		if (SimpleGUI::Button(U"Green", Vec2(10, 90), 180))
 		{
-			g_viewerManagerPtr->getViewer<TitleViewer>()->SetColor(Palette::Green);
+			ViewerManager::GetViewer<TitleViewer>()->SetColor(Palette::Green);
 		}
 		if (SimpleGUI::Button(U"Blue", Vec2(10, 130), 180))
 		{
-			g_viewerManagerPtr->getViewer<TitleViewer>()->SetColor(Palette::Blue);
+			ViewerManager::GetViewer<TitleViewer>()->SetColor(Palette::Blue);
 		}
 	}
 };
@@ -99,20 +99,19 @@ public:
 		if (SimpleGUI::Button(U"Move the cat", Vec2(10, 10), 180))
 		{
 			// 猫の座標を画面内のランダムな位置に移動する
-			g_viewerManagerPtr->getViewer<TitleViewer>()->SetCatPos(RandomVec2(Scene::Rect()));
+			ViewerManager::GetViewer<TitleViewer>()->SetCatPos(RandomVec2(Scene::Rect()));
 		}
 	}
 };
 
 void Main()
 {
-	g_viewerManagerPtr = MakeUnique<ViewerManager>();
-	g_viewerManagerPtr->makeViewer<TitleViewer>();
-	g_viewerManagerPtr->makeViewer<ButtonViewer>();
-	g_viewerManagerPtr->makeViewer<TeleportViewer>();
+	ViewerManager::MakeViewer<TitleViewer>();
+	ViewerManager::MakeViewer<ButtonViewer>();
+	ViewerManager::MakeViewer<TeleportViewer>();
 
-	while (System::update())
+	while (System::Update())
 	{
-		g_viewerManagerPtr->update();
+		ViewerManager::Update();
 	}
 }
