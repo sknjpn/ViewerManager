@@ -21,7 +21,7 @@ public:
 	void	setDrawRect(const Vec2& size) { m_drawRect = RectF(size); }
 	void	setDrawRect(double x, double y, double w, double h) { m_drawRect = RectF(x, y, w, h); }
 	void	setDrawRect(double w, double h) { m_drawRect = RectF(w, h); }
-	void	MoveDrawPos(double dx, double dy) { setDrawPos(m_drawPos.movedBy(dx, dy)); }
+	void	moveDrawPos(double dx, double dy) { setDrawPos(m_drawPos.movedBy(dx, dy)); }
 
 	// Get
 	const RectF& getDrawRect() const { return m_drawRect; }
