@@ -1,5 +1,4 @@
 ﻿#include "ViewerManager.h"
-#include "Viewer.h"
 
 class TitleViewer
 	: public Viewer
