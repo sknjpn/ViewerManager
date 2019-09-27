@@ -68,15 +68,21 @@ public:
 		{
 			ViewerManager::GetViewer<TitleViewer>()->SetColor(Palette::White);
 		}
-		if (SimpleGUI::Button(U"Red", Vec2(10, 50), 180))
+
+		moveDrawPos(0, 40);
+		if (SimpleGUI::Button(U"Red", Vec2(10, 10), 180))
 		{
 			ViewerManager::GetViewer<TitleViewer>()->SetColor(Palette::Red);
 		}
-		if (SimpleGUI::Button(U"Green", Vec2(10, 90), 180))
+
+		moveDrawPos(0, 40);
+		if (SimpleGUI::Button(U"Green", Vec2(10, 10), 180))
 		{
 			ViewerManager::GetViewer<TitleViewer>()->SetColor(Palette::Green);
 		}
-		if (SimpleGUI::Button(U"Blue", Vec2(10, 130), 180))
+
+		moveDrawPos(0, 40);
+		if (SimpleGUI::Button(U"Blue", Vec2(10, 10), 180))
 		{
 			ViewerManager::GetViewer<TitleViewer>()->SetColor(Palette::Blue);
 		}
