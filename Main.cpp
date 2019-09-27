@@ -9,7 +9,7 @@ class TitleViewer
 	Color	m_color;
 
 public:
-	void Init() override
+	void init() override
 	{
 		// 背景を水色にする
 		setBackgroundColor(ColorF(0.8, 0.9, 1.0));
@@ -55,7 +55,7 @@ class ButtonViewer
 	: public Viewer
 {
 public:
-	void Init()
+	void init()
 	{
 		setDrawRect(600, 0, 200, 300);
 		setBackgroundColor(Palette::Gray);
@@ -92,7 +92,7 @@ class TeleportViewer
 	: public Viewer
 {
 public:
-	void Init()
+	void init()
 	{
 		setDrawRect(600, 300, 200, 300);
 		setBackgroundColor(Palette::Gray);

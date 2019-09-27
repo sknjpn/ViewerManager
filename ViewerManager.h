@@ -28,7 +28,7 @@ public:
 	const Vec2& getDrawPos() const { return m_drawPos; }
 	bool	isMouseOver() const { return m_isMouseOver; }
 
-	virtual void	Init() {}
+	virtual void	init() {}
 	virtual void	update() {}
 };
 
@@ -122,7 +122,7 @@ public:
 	{
 		auto v = dynamic_pointer_cast<T>(GetInstance().m_newViewers.emplace_back(MakeShared<T>(args...)));
 
-		v->Init();
+		v->init();
 
 		return v;
 	}
