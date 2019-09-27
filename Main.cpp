@@ -55,13 +55,13 @@ class ButtonViewer
 	: public Viewer
 {
 public:
-	void init()
+	void init() override
 	{
 		setDrawRect(600, 0, 200, 300);
 		setBackgroundColor(Palette::Gray);
 	}
 
-	void update()
+	void update() override
 	{
 		if (SimpleGUI::Button(U"White", Vec2(10, 10), 180))
 		{
@@ -92,13 +92,13 @@ class TeleportViewer
 	: public Viewer
 {
 public:
-	void init()
+	void init() override
 	{
 		setDrawRect(600, 300, 200, 300);
 		setBackgroundColor(Palette::Gray);
 	}
 
-	void update()
+	void update() override
 	{
 		// ボタンが押されたら
 		if (SimpleGUI::Button(U"Move the cat", Vec2(10, 10), 180))
