@@ -13,7 +13,7 @@ public:
 	void Init() override
 	{
 		// 背景を水色にする
-		SetBackgroundColor(ColorF(0.8, 0.9, 1.0));
+		setBackgroundColor(ColorF(0.8, 0.9, 1.0));
 
 		// 大きさ 60 のフォントを用意
 		m_font = Font(60);
@@ -25,7 +25,7 @@ public:
 		m_m_catPos.set(400, 450);
 		m_color = Palette::White;
 
-		SetDrawRect(600, 600);
+		setDrawRect(600, 600);
 	}
 
 	void update() override
@@ -58,8 +58,8 @@ class ButtonViewer
 public:
 	void Init()
 	{
-		SetDrawRect(600, 0, 200, 300);
-		SetBackgroundColor(Palette::Gray);
+		setDrawRect(600, 0, 200, 300);
+		setBackgroundColor(Palette::Gray);
 	}
 
 	void update()
@@ -89,8 +89,8 @@ class TeleportViewer
 public:
 	void Init()
 	{
-		SetDrawRect(600, 300, 200, 300);
-		SetBackgroundColor(Palette::Gray);
+		setDrawRect(600, 300, 200, 300);
+		setBackgroundColor(Palette::Gray);
 	}
 
 	void update()
